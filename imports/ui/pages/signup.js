@@ -62,7 +62,7 @@ export class Signup extends React.Component {
   render() {
     return (
       <Card style={styles.cardStyles} >
-      <CardTitle titile="Login" />
+      <CardTitle title="Login" />
         <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
           <FormsyText 
             name="firstName"
