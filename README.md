@@ -11,7 +11,7 @@ A Material-UI starting point for Meteor/React apps. (Fork of [TheMeteorChef's Ba
   <tbody>
       <tr>
       <th>Base-Material-UI</th>
-      <td>v0.0.2</td>
+      <td>v0.0.3</td>
     </tr>
     <tr>
       <th>Base Version</th>
@@ -19,7 +19,7 @@ A Material-UI starting point for Meteor/React apps. (Fork of [TheMeteorChef's Ba
     </tr>
     <tr>
       <th>Meteor Version</th>
-      <td>v1.3.5.1</td>
+      <td>v1.4.2</td>
     </tr>
   </tbody>
 </table>
