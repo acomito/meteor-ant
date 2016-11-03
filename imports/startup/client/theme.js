@@ -1,10 +1,20 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { colorConfig } from '../../modules/config/color-config';
 
+
+const { 
+  primary1Color,
+  accent1Color,
+  primaryText
+} = colorConfig
 
 
 export const muiTheme = getMuiTheme({
   palette: {
+    primary1Color: primary1Color,
+    accent1Color: accent1Color,
+    textColor: primaryText,
  /*    primary1Color: '#009688',
     primary2Color: '#00796B',
     accent1Color: '#FF6E40',

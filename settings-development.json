@@ -1,4 +1,10 @@
 {
-  "public": {},
-  "private": {}
+  "public": {
+	  	"config": {
+	      "appName": "Base Material",
+	      "supportEmail": "support@support.org",
+	      "supportName": "Base"
+	  	}
+	},
+	"private": {}
 }

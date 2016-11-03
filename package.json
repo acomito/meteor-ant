@@ -56,6 +56,8 @@
     }
   },
   "dependencies": {
+    "aphrodite": "^1.0.0",
+    "bcrypt": "^0.8.7",
     "eslint": "^2.13.1",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",

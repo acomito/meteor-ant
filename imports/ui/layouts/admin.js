@@ -3,7 +3,7 @@ import AppNavigation from '../containers/app-navigation';
 import { browserHistory } from 'react-router';
 import 'flexboxgrid';
 
-export const App = React.createClass({
+export const Admin = React.createClass({
   
   propTypes: {
     children: React.PropTypes.element.isRequired,
