@@ -5,11 +5,15 @@ import { handleLogin } from '../../modules/login';
 //material-ui stuff
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import {Card, CardActions, CardTitle} from 'material-ui/Card';
+import {Form, FormItem, Input, Select, Slider} from 'formsy-antd';
 //forms
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-
+import 'antd/lib/card/style/css';
+import 'antd/lib/button/style/css';
+import 'antd/lib/input/style/css';
+import 'antd/lib/notification/style/css';
+import { Card, Button, Row, Col, notification  } from 'antd';
 
 
   const styles = {
@@ -39,16 +43,30 @@ export class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { canSubmit: false }
+    this.state = { canSubmit: false, loading: false }
     this.enableButton = this.enableButton.bind(this);
     this.submit = this.submit.bind(this);
     this.disableButton = this.disableButton.bind(this);
+
   }
 
   submit(data) {
+    this.setState({loading: true});
+    const success = () => {
+          this.setState({loading: false});
+          notification['success']({
+            message: 'Notification Title',
+            description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+          });
+    }
+    setTimeout(function(){
+      success();
+    }, 5000);
+
+/*    console.log('it ran')
     let email = data.emailAddress;
     let password = data.password;
-    handleLogin(email, password);
+    handleLogin(email, password);*/
   }
 
   enableButton() {
@@ -61,30 +79,35 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <Card style={styles.cardStyles} >
-      <CardTitle title="Login" />
-        <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
-          <FormsyText 
-            floatingLabelText="Email" 
+      <Card title='Login'>
+        <Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
+          <FormItem
+          required
+          label="name"
+        ><Input 
             style={styles.textField}
             name="emailAddress" 
             validations="isEmail" 
             validationError="This is not a valid email" 
             required 
           />
-          <FormsyText 
-            floatingLabelText="Password" 
+          </FormItem>
+          <FormItem
+          required
+          label="Password">
+          <Input 
             style={styles.textField} 
             value="" 
             name="password" 
             type="password" 
             required 
           />
-          <CardActions style={styles.cardActionStyles}>
-            <RaisedButton type="submit" secondary={true} label="Login" disabled={!this.state.canSubmit} />
-            <Link to="/recover-password"><FlatButton label="Forgot Password?" /></Link>
-          </CardActions>
-        </Formsy.Form>
+          </FormItem>
+            <Button loading={this.state.loading} type="submit" onClick={this.submit} type='primary' disabled={!this.state.canSubmit}>
+            Login
+            </Button>
+            <Link to="/recover-password">Forgot Password?</Link>
+        </Form>
       </Card>
     );
   }
