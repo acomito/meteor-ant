@@ -1,5 +1,4 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 
 
 styles={
@@ -10,9 +9,7 @@ styles={
 }
 
 export const AdminHomePage = () => (
-  	<div  className="row center-xs middle-xs" style={{padding: "100px 0px"}}>
-		<div className="box">
+  	<div>
 	  		<h2>Admin Home</h2>
-		</div>
   	</div>
 );

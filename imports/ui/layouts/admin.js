@@ -1,7 +1,7 @@
 import React from 'react';
 import AppNavigation from '../containers/app-navigation';
 import { browserHistory } from 'react-router';
-import 'flexboxgrid';
+
 
 export const Admin = React.createClass({
   

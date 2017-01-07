@@ -4,11 +4,6 @@ import { Link } from 'react-router';
 //components
 import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
-import { SideNav } from './side-nav';
-//material-ui stuff
-import AppBar from 'material-ui/AppBar';
-import Menu from 'material-ui/svg-icons/navigation/menu';
-import IconButton from 'material-ui/IconButton';
 
 
 const styles = {
@@ -44,14 +39,8 @@ export class AppNavigation extends React.Component {
 
   render() {
     return <div>
-              <AppBar 
-                title={<Link to="/" style={styles.titleLink}>Application Name</Link>}
-                style={styles.AppNavigation}
-                iconElementRight={ this.renderNavigation(this.props.hasUser, this.props.currentPath)}
-                iconElementLeft={<IconButton onClick={this.handleToggle}><Menu className="mobileNav" color={"#FFFFFF"} /></IconButton>}
-              />
-              <SideNav isOpen={this.state.open} close={this.handleClose} hasUser={this.props.hasUser} currentPath={this.props.currentPath}/>
-            </div>
+      
+    </div>
   }
 }
 

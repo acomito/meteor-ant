@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import { App } from '../../ui/layouts/app';
 import { Admin } from '../../ui/layouts/admin';
 //Pages
-import { Documents } from '../../ui/pages/documents';
 import { Index } from '../../ui/pages/index';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
@@ -17,8 +16,8 @@ import { Signup } from '../../ui/pages/signup';
 import { AdminHomePage } from '../../ui/pages/admin/admin-home';
 import { AdminLoginPage } from '../../ui/pages/admin/admin-login';
 //Theme
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { muiTheme } from './theme';
+import enUS from 'antd/lib/locale-provider/en_US';
+import { LocaleProvider } from 'antd'
 
 
 const requireAuth = (nextState, replace) => {
@@ -32,11 +31,10 @@ const requireAuth = (nextState, replace) => {
 
 Meteor.startup(() => {
   render(
-    <MuiThemeProvider muiTheme={muiTheme}>
+    <LocaleProvider locale={enUS}>
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } />
-        <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
         <Route name="login" path="/login" component={ Login } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
@@ -50,7 +48,7 @@ Meteor.startup(() => {
 
       <Route path="*" component={ NotFound } />
     </Router>
-    </MuiThemeProvider>,
+    </LocaleProvider>,
     document.getElementById('react-root')
   );
 });

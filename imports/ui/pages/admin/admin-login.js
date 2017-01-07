@@ -2,14 +2,7 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import { StyleSheet, css } from 'aphrodite';
 //modules
-//import { handleLogin } from '../../modules/login';
-//material-ui stuff
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import {Card, CardActions, CardTitle} from 'material-ui/Card';
-//forms
-import Formsy from 'formsy-react';
-import { FormsyText } from 'formsy-material-ui/lib';
+
 
 
 
@@ -66,7 +59,7 @@ class AdminLogin extends React.Component {
   render() {
     return (
       <Card className={css(styles.cardStyles)} >
-      <CardTitle title="Admin" />
+      {/*<CardTitle title="Admin" />
         <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
           <FormsyText 
             floatingLabelText="Email" 
@@ -88,7 +81,7 @@ class AdminLogin extends React.Component {
             <RaisedButton type="submit" secondary={true} label="Login" disabled={!this.state.canSubmit} />
             <Link to="/recover-password"><FlatButton label="Forgot Password?" /></Link>
           </CardActions>
-        </Formsy.Form>
+        </Formsy.Form>*/}
       </Card>
     );
   }

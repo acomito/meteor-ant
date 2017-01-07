@@ -22,8 +22,8 @@ accounts-base@1.2.14
 check@1.2.4
 audit-argument-checks@1.0.7
 #browser-policy
+less
 
-fourseven:scss
 aldeed:collection2
 alanning:roles
 themeteorchef:bert

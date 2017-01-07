@@ -1,6 +1,4 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router';
 import { returnActiveLink } from '../../modules/active-helpers';
 
@@ -12,12 +10,12 @@ const styles = {
 
 export const PublicNavigation = ({currentPath}) => (
 	<div className="navLinks" >
-    	<Link to="/signup" >
+{/*    	<Link to="/signup" >
     		<FlatButton labelStyle={returnActiveLink(currentPath, '/signup')} style={styles.navLink} label="Signup" />
     	</Link>
     	<Link to="/login"  >
     		<FlatButton labelStyle={returnActiveLink(currentPath, '/login')}  style={styles.navLink} label="Login" />
-    	</Link>
+    	</Link>*/}
     </div>
 );
 

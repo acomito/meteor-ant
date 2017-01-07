@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { handleSignup } from '../../modules/signup';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import {Card, CardActions, CardTitle} from 'material-ui/Card';
-import Formsy from 'formsy-react';
-import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
-    FormsySelect, FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
-
+import {Card } from 'antd';
 
   const styles = {
     cardStyles: {
@@ -62,7 +56,7 @@ export class Signup extends React.Component {
   render() {
     return (
       <Card style={styles.cardStyles} >
-      <CardTitle title="Login" />
+{/*      <CardTitle title="Login" />
         <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
           <FormsyText 
             name="firstName"
@@ -95,7 +89,7 @@ export class Signup extends React.Component {
             <RaisedButton type="submit" secondary={true} label="Sign Up" disabled={!this.state.canSubmit} />
             <Link to="/login"><FlatButton label="Already have an account?" /></Link>
           </CardActions>
-        </Formsy.Form>
+        </Formsy.Form>*/}
       </Card>
     );
   }

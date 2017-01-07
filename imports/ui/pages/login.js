@@ -2,13 +2,7 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 //modules
 import { handleLogin } from '../../modules/login';
-//material-ui stuff
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import {Form, FormItem, Input, Select, Slider} from 'formsy-antd';
-//forms
-import Formsy from 'formsy-react';
-import { FormsyText } from 'formsy-material-ui/lib';
+//
 import 'antd/lib/card/style/css';
 import 'antd/lib/button/style/css';
 import 'antd/lib/input/style/css';
@@ -80,7 +74,7 @@ export class Login extends React.Component {
   render() {
     return (
       <Card title='Login'>
-        <Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
+{/*        <Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
           <FormItem
           required
           label="name"
@@ -107,7 +101,7 @@ export class Login extends React.Component {
             Login
             </Button>
             <Link to="/recover-password">Forgot Password?</Link>
-        </Form>
+        </Form>*/}
       </Card>
     );
   }

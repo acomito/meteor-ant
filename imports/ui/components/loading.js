@@ -1,5 +1,4 @@
 import React from 'react';
-import CircularProgress from 'material-ui/CircularProgress';
 
 
 const styles = {
@@ -11,6 +10,5 @@ const styles = {
 
 export const Loading = () => (
   <div style={styles.divStyle}>
-    <CircularProgress />
   </div>
 );

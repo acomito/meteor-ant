@@ -1,13 +1,5 @@
 import React from 'react';
 import { handleResetPassword } from '../../modules/reset-password';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import { Bert } from 'meteor/themeteorchef:bert';
-import {Card, CardActions, CardTitle} from 'material-ui/Card';
-import Formsy from 'formsy-react';
-import Snackbar from 'material-ui/Snackbar';
-import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
-    FormsySelect, FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
 
 const styles = {
   cardStyles: {
@@ -55,7 +47,7 @@ export class ResetPassword extends React.Component {
 
   render() {
     return (
-      <Card style={styles.cardStyles} >
+      <Card >{/*={styles.cardStyles} >
       <Snackbar
             open={true}
             bodyStyle={styles.snackBar} 
@@ -83,7 +75,7 @@ export class ResetPassword extends React.Component {
           <CardActions >
             <RaisedButton type="submit" secondary={true} label="Reset Password &amp; Login" disabled={!this.state.canSubmit} />
           </CardActions>
-        </Formsy.Form>
+        </Formsy.Form>*/}
       </Card>
     );
   }

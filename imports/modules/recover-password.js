@@ -1,5 +1,3 @@
-import $ from 'jquery';
-import 'jquery-validation';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { getInputValue } from './get-input-value';
