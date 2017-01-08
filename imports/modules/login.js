@@ -1,36 +1,15 @@
 import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
-import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
-
-let component;
-
-/*const login = (email, password) => {
-
-  Meteor.loginWithPassword(email, password, (error) => {
-    if (error) {
-      Bert.alert(error.reason, 'warning');
-    } else {
-      Bert.alert('Logged in!', 'success');
-
-      const { location } = component.props;
-      if (location.state && location.state.nextPathname) {
-        browserHistory.push(location.state.nextPathname);
-      } else {
-        browserHistory.push('/');
-      }
-    }
-  });
-};*/
+import { message } from 'antd';
 
 
 const login = (email, password) => {
 
   Meteor.loginWithPassword(email, password, (error) => {
     
-    if (error) { Bert.alert(error.reason, 'warning'); return; }
+    if (error) { message.error(error.reason); return; }
     //else
-    Bert.alert('Logged in!', 'success');
+    message.success('Logged in!');
     browserHistory.push('/');
 
   });

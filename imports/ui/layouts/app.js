@@ -33,63 +33,44 @@ const styles = StyleSheet.create({
 
 const { footerStyles } = styles;
 
-const Navigation = React.createClass({
+const AppNavigation = React.createClass({
   getInitialState() {
-    return {
-      current: 'mail',
-    };
+      return {
+        current: this.props.pathname
+      };
+    
   },
   handleClick(e) {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
+    browserHistory.push(e.key);
+    this.setState({ current: e.key });
+    return;  
   },
   render() {
     return (
-      <Menu onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
-        mode="horizontal"
-      >
-
-	      		<Menu.Item key="mail">
-			      <Icon type="mail" />Navigation One
-			    </Menu.Item>
-			    <Menu.Item key="app" disabled>
-			      <Icon type="appstore" />Navigation Two
-			    </Menu.Item>
-			    <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-			      <MenuItemGroup title="Item 1">
-			        <Menu.Item key="setting:1">Option 1</Menu.Item>
-			        <Menu.Item key="setting:2">Option 2</Menu.Item>
-			      </MenuItemGroup>
-			      <MenuItemGroup title="Item 2">
-			        <Menu.Item key="setting:3">Option 3</Menu.Item>
-			        <Menu.Item key="setting:4">Option 4</Menu.Item>
-			      </MenuItemGroup>
-			    </SubMenu>
-			    <Menu.Item key="alipay">
-			      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-			    </Menu.Item>
- 
-      </Menu>
+    <Row className='landing-menu' type="flex" justify="space-around" align="middle"  style={{height: 55, zIndex: 1000, paddingLeft: 95, color: '#fff', backgroundColor: '#da5347', borderBottom: '1px solid #e9e9e9'}}>
+      <Col span='19'>
+        <Link to='/'>
+          <h2 style={{fontSize: 21, color: '#fff'}}>
+            {appName}
+            <Icon type="rocket" color="#fff" style={{fontWeight: 200, fontSize: 26, marginLeft: 5 }}/>
+          </h2>
+        </Link>
+      </Col>
+      <Col span='5'>
+        <Menu onClick={this.handleClick} selectedKeys={[this.props.pathname]} mode="horizontal" style={{height: 54, backgroundColor: '#da5347', borderBottom: '0px solid transparent'}}>
+        <Menu.Item style={{height: 54, }} key="/">Home</Menu.Item>
+        <Menu.Item style={{height: 54, }} key="/signup">Signup</Menu.Item>
+        <Menu.Item style={{height: 54, }} key="/login">Login</Menu.Item>
+        </Menu>
+      </Col>
+        
+      </Row>
     );
   },
 });
 
 
-const AppNavigation = () => {
-	return (
-		<Row style={{backgroundColor: '#fff'}}>
-			<Col span='11'>
-				<h1>{ appName }</h1>
-			</Col>
-			<Col span='13'>
-				<Navigation />
-			</Col>
-		</Row>
-	);
-}
+
 
 const Footer = () => {
   return (

@@ -1,17 +1,20 @@
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
+import { imageConfig, appConfig } from './config';
+import { message } from 'antd';
 
+const { defaultUserAvatar } = imageConfig;
+const { appName } = appConfig;
 
 
 const signUp = (user) => {
 
   Accounts.createUser(user, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'danger');
+      message.error(error.reason);
     } else {
       browserHistory.push('/');
-      Bert.alert('Welcome!', 'success');
+      message.error(`Welcome to ${appName}!`);
     }
   });
 };
@@ -25,6 +28,7 @@ export const handleSignup = (firstName, lastName, emailAddress, password) => {
           name: {
             first: firstName,
             last: lastName,
+            avatar: defaultUserAvatar
           },
         },
   };

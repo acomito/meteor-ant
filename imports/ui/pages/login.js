@@ -1,22 +1,19 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import { StyleSheet, css } from 'aphrodite'
 //modules
 import { handleLogin } from '../../modules/login';
-//
-import 'antd/lib/card/style/css';
-import 'antd/lib/button/style/css';
-import 'antd/lib/input/style/css';
-import 'antd/lib/notification/style/css';
-import { Card, Button, Row, Col, notification  } from 'antd';
+//material-ui stuff
 
+import { Form, Icon, Input, Card, Button, Checkbox } from 'antd';
+const FormItem = Form.Item;
 
-  const styles = {
+  const styles = StyleSheet.create({
     cardStyles: {
-      "width": "40%",
+      "maxWidth": 400,
       "margin": "auto",
       "marginTop": "40px",
       "padding": "20px",
-      textAlign: "center",
     },
     textField: {
       display: "block",
@@ -28,39 +25,89 @@ import { Card, Button, Row, Col, notification  } from 'antd';
     },
     cardActionStyles: {
       margin: "auto"
+    },
+    loginButton: {
+      width: '100%'
     }
-  }
+  });
+
+const NormalLoginForm = Form.create()(React.createClass({
+  getInitialState () {
+    return {
+      loading: false
+    };
+  },
+  handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(this.state.loading)
+    this.setState({loading: true});
+    const doneLoading = () => this.setState({loading: false})
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        setTimeout(function(){
+          let email = values.emailAddress;
+          let password = values.password;
+          handleLogin(email, password);
+          doneLoading();
+        }, 3000);
+      }
+     
+    });
+
+  },
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <FormItem>
+          {getFieldDecorator('emailAddress', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input addonBefore={<Icon type="mail" />} placeholder="Username" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox>Remember me</Checkbox>
+          )}
+          {/*<a style={{float: 'right'}}>Forgot password</a>*/}
+          <Button loading={this.state.loading} type="primary" htmlType="submit" className={css(styles.loginButton)}>
+            Login
+          </Button>
+          Or <Link to='/signup'>register now!</Link>
+        </FormItem>
+      </Form>
+    );
+  },
+}));
+
 
 
 export class Login extends React.Component {
 
-
   constructor(props) {
     super(props);
-    this.state = { canSubmit: false, loading: false }
+    this.state = { canSubmit: false }
     this.enableButton = this.enableButton.bind(this);
     this.submit = this.submit.bind(this);
     this.disableButton = this.disableButton.bind(this);
-
   }
 
   submit(data) {
-    this.setState({loading: true});
-    const success = () => {
-          this.setState({loading: false});
-          notification['success']({
-            message: 'Notification Title',
-            description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-          });
-    }
-    setTimeout(function(){
-      success();
-    }, 5000);
-
-/*    console.log('it ran')
     let email = data.emailAddress;
     let password = data.password;
-    handleLogin(email, password);*/
+    handleLogin(email, password);
   }
 
   enableButton() {
@@ -73,35 +120,8 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <Card title='Login'>
-{/*        <Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
-          <FormItem
-          required
-          label="name"
-        ><Input 
-            style={styles.textField}
-            name="emailAddress" 
-            validations="isEmail" 
-            validationError="This is not a valid email" 
-            required 
-          />
-          </FormItem>
-          <FormItem
-          required
-          label="Password">
-          <Input 
-            style={styles.textField} 
-            value="" 
-            name="password" 
-            type="password" 
-            required 
-          />
-          </FormItem>
-            <Button loading={this.state.loading} type="submit" onClick={this.submit} type='primary' disabled={!this.state.canSubmit}>
-            Login
-            </Button>
-            <Link to="/recover-password">Forgot Password?</Link>
-        </Form>*/}
+      <Card className={css(styles.cardStyles)} title={<p style={{textAlign: 'center'}}>Login</p>} >
+        <NormalLoginForm />
       </Card>
     );
   }

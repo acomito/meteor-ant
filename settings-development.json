@@ -1,9 +1,9 @@
 {
   "public": {
 	  	"config": {
-	      "appName": "Base AntD",
+	      "appName": "SpaceBug",
 	      "supportEmail": "support@support.org",
-	      "supportName": "Base"
+	      "supportName": "Bug"
 	  	}
 	},
 	"private": {}

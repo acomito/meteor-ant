@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Spin } from 'antd';
 
 const styles = {
   divStyle: {
@@ -10,5 +10,6 @@ const styles = {
 
 export const Loading = () => (
   <div style={styles.divStyle}>
+    <Spin />
   </div>
 );

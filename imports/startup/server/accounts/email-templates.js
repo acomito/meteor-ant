@@ -1,8 +1,8 @@
 import { Accounts } from 'meteor/accounts-base';
 
-const name = 'Application Name';
-const email = '<support@application.com>';
-const from = `${name} ${email}`;
+const name = Meteor.settings.public.config.appName;
+const email = `<${Meteor.settings.public.config.supportEmail}>`;
+const from = `${Meteor.settings.public.config.supportName} ${Meteor.settings.public.config.supportEmail}`;
 const emailTemplates = Accounts.emailTemplates;
 
 emailTemplates.siteName = name;
