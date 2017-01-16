@@ -1,14 +1,70 @@
 @import '{}/node_modules/antd/dist/antd.less';
 
+@font-face {
+    font-family: 'ProximaNovaSoft_Bold';
+    src: url('/fonts/proximanovasoft-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNovaSoft_Medium';
+    src: url('/fonts/proximanovasoft-medium.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNovaSoft_Regular';
+    src: url('/fonts/proximanovasoft-regular.woff') format('woff');
+}
 
 
+h1, h2, h3 {
+	font-family: 'ProximaNovaSoft_Medium';
+	-webkit-font-smoothing: antialiased;
+	-webkit-margin-after: 0px;
+	-webkit-margin-before: 10px;
+	-webkit-margin-end: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+span, p, a  {
+	font-family: 'ProximaNovaSoft_Regular';
+}
+
+
+
+p {
+	-webkit-font-smoothing: antialiased;
+	-webkit-margin-after: 10px;
+	-webkit-margin-before: 5px;
+	-webkit-margin-end: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button {
+	span {
+		font-family: 'ProximaNovaSoft_Medium';
+	}
+}
+
+
+.ant-menu-item {
+	font-family: 'ProximaNovaSoft_Regular';
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased;
+	font-size: 14px;
+}
 
 // Prefix
 @ant-prefix             : ant;
 
 // Color
 //@primary-color          : #108ee9;
-@primary-color          : #d70b52;
+@primary-color          : #108ee9;
 @success-color          : #87d068;
 @error-color            : #f50;
 @highlight-color        : #f50;
@@ -16,9 +72,9 @@
 @normal-color           : #d9d9d9;
 
 // ------ Base & Require ------
-@body-background        : #fff;
+@body-background        : #fafafa;
 @component-background   : #fff;
-@font-family            : Open Sans, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family            : 'ProximaNovaSoftMedium', BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @text-color             : #666;
 @heading-color          : #404040;
@@ -221,27 +277,7 @@
 // CUSTOM STYLES
 // ===================== 
 
-h1, h2, h3 {
-	font-family: Open Sans;
-	-webkit-font-smoothing: antialiased;
-	-webkit-margin-after: 0px;
-	-webkit-margin-before: 10px;
-	-webkit-margin-end: 0px;
-	-webkit-margin-start: 0px;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
 
-
-
-p {
-	font-family: Open Sans;
-	-webkit-font-smoothing: antialiased;
-	-webkit-margin-after: 10px;
-	-webkit-margin-before: 5px;
-	-webkit-margin-end: 0px;
-	-webkit-margin-start: 0px;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
 
 
 .ant-menu-item {
@@ -298,15 +334,12 @@ ul.ant-menu-horizontal {
     box-shadow: none  !important;	
 }
 
-.rc-progress-circle-path {
-	stroke: @primary-color !important;
-}
 
 
 
 
 
-
+/*
 
 
 .cant-find-form {
@@ -331,13 +364,9 @@ ul.ant-menu-horizontal {
 	border-bottom: 2px solid transparent !important;
 	color: @primary-color !important;
 }
+*/
 
 
-
-.vendor-title {
-	margin-top: 20px;
-	font-size: 28px;
-}
 
 a {
   text-decoration: none;
@@ -364,5 +393,22 @@ body {
 }
 
 
+.landing-menu {
+	.ant-menu-item {
+		color: #f1beba;
+	}
 
+	li.ant-menu-item-selected {
+		color: #fff;
+		border-bottom: 2px solid #fff;
+	}	
+}
+
+.ant-timeline-item-head-custom {
+	background: #fafafa !important;	
+}
+
+.ant-timeline-item-head {
+	background: #fafafa !important;	
+}
 

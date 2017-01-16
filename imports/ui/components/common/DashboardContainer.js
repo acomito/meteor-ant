@@ -1,14 +1,12 @@
 import React from 'react';
-
+import { Row } from 'antd'
 
 
 const DashboardContainer = (props) => (
-	<div  className="row" style={{marginLeft: "165px", marginRight: "100px", padding: "50px 0px"}}>
-		<div className="box" style={{flex: 1}}>
-			<h2>{props.pageTitle}</h2> 
-			{props.children}
-		</div>
-  	</div>
+	<Row style={{marginRight: "100px"}}>
+		<h2>{props.pageTitle}</h2> 
+		{props.children}	
+  	</Row>
 );
 
 export { DashboardContainer }

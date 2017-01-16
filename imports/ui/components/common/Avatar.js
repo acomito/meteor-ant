@@ -12,6 +12,7 @@ const Avatar = ({src, size}) => {
 			overflow: 'hidden',
 			borderRadius: '50%',
 			margin: 'auto',
+			background: '#efefef'
 		},
 		imageStyles: {
 			cursor: 'pointer', 

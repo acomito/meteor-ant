@@ -1,4 +1,3 @@
-import { Vendors } from './Vendors/Vendors';
 import { Roles } from 'meteor/alanning:roles'
 import { notAdmin, notSignedIn } from './error-enums';
 

@@ -27,6 +27,14 @@ export const baseSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  clusters: {
+    type: [String],
+    optional: true, // finance, general-user, events, etc.
+  },
+  serviceTypes: {
+    type: [String], // businessPlanning, financialManagement, funding, legalAssistance, etc.
+    optional: true
+  },
   parentModelType: {
     type: String,
     optional: true,

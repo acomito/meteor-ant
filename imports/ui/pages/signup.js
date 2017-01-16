@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { handleSignup } from '../../modules/signup';
-import { StyleSheet, css } from 'aphrodite'
+import { StyleSheet, css } from 'aphrodite';
+import Joyride from 'react-joyride';
+
+//modules
+import { onboardConfig } from '../../modules/config';
 import { Form, Icon, Input, Card, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
@@ -121,6 +125,7 @@ export class Signup extends React.Component {
     super(props);
     this.state = { canSubmit: false }
     this.submit = this.submit.bind(this);
+    this.callBack = this.callBack.bind(this);
 
   }
 
@@ -134,11 +139,35 @@ export class Signup extends React.Component {
     handleSignup(firstName, lastName, graduationYear, emailAddress, password );
 
   }
+  componentDidMount() {
+    this.refs.joyride.start();
+  }
+  callBack(data){
+    
+    if (data.action === 'close') {
+      console.log(data)
+    }
+  }
   render() {
 
+     let data = [{
+          title: onboardConfig.signupPage_demo_title,
+          text: onboardConfig.signupPage_demo_text,
+          selector: '.first-step',
+          position: 'top',
+          type: 'hover',
+          style: onboardConfig.onboardStyle,
+        }];
 
     return (
       <div>
+      <Joyride
+          ref='joyride'
+          debug={false}
+          steps={data}
+          type="single"
+          callback={this.callBack}
+      />
       <Card className={css(styles.cardStyles) + ' first-step'} title={<p style={{textAlign: 'center'}}>Create a Student Account</p>}>
         <NormalLoginForm />
       </Card>

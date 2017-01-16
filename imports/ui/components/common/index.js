@@ -9,3 +9,7 @@ export * from './Avatar';
 export * from './DashboardContainer';
 export * from './SearchArea';
 export * from './LabelAndValue';
+//LAYOUT
+export * from './StudentSingle';
+export * from './AdvisorList';
+export * from './FormCard';
